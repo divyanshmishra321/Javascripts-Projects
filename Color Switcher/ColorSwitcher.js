@@ -1,0 +1,27 @@
+const buttons = document.querySelectorAll(".buttons");
+const body = document.querySelector("body");
+const reset = document.querySelector(".reset");
+
+buttons.forEach(function (button) {
+  console.log(button);
+  button.addEventListener("click", function (e) {
+    console.log(e);
+    console.log(e.target);
+    if (e.target.id === "grey") {
+      body.style.backgroundColor = e.target.id;
+    }
+    if (e.target.id === "blue") {
+      body.style.backgroundColor = e.target.id;
+    }
+    if (e.target.id === "pink") {
+      body.style.backgroundColor = e.target.id;
+    }
+    if (e.target.id === "red") {
+      body.style.backgroundColor = e.target.id;
+    }
+  });
+});
+
+reset.addEventListener("click", (e) => {
+  body.style.backgroundColor = "white";
+});

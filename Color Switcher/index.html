@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Switcher </title>
+
+    <style>
+        html {
+            margin: 0;
+
+        }
+        body{
+            height:500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav {
+            text-align: center;
+            margin: 10px;
+            background-color: aqua;
+            width:100%;
+
+        }
+
+        span {
+            border: 1px solid black;
+            display: block;
+            border-radius: 5px;
+        }
+
+        a {
+            background-color: #fff;
+            text-decoration: none;
+            border: 1px solid black;
+            border-radius: 2px;
+            padding: 5px 10px;
+            color: black;
+            font-size: larger;
+            font-weight: 700;
+        }
+
+        .buttons {
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+        }
+
+        .canvas {
+            text-align: center;
+            width: 90%;
+            margin: 100px auto 100px
+        }
+
+        #grey {
+            background-color: grey;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #pink {
+            background-color: pink;
+        }
+
+        #red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="canvas">
+        <h1>Switch Color In a Click</h1>
+
+        <span class="buttons" id="grey"></span>
+
+        <span class="buttons" id="blue"></span>
+
+        <span class="buttons" id="pink"></span>
+
+        <span class="buttons" id="red"></span>
+
+
+        <h2>Try Clicking on one of the colors above to change the background of the page</h2>
+
+        <button class="reset">Reset Color</button>
+    </div>
+
+    <script src="ColorSwitcher.js"></script>
+</body>
+
+</html>
