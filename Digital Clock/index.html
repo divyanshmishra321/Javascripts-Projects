@@ -36,14 +36,28 @@
             font-size: x-large;
             font-weight: 700;
         }
+        #DayClock{
+            background-color: #fff;
+            border-radius: 8px;
+            color: #212121;
+            font-weight: 700;
+            padding: 5px;
+            
+        }
     </style>
 </head>
 
 <body>
     <div class="center">
         <div id="banner"><span>Your local time</span></div>
+        <div id="DayClock"></div>
         <div id="clock"></div>
+        <div class="buttonsArea">
+            <button class="btn" id="start">Start</button>
+            <button class="btn" id="stop">Stop</button>
+        </div>
     </div>
+
     <script src="DigitalClock.js"></script>
 </body>
 

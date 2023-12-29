@@ -1,9 +1,22 @@
-const clock = document.getElementById('clock');
-// const clock = document.querySelector('#clock')
+const clock = document.getElementById("clock");
+let interval;
 
-setInterval(function () {
-  let date = new Date();
-  // console.log(date.toLocaleTimeString());
-  clock.innerHTML = date.toLocaleTimeString();
-}, 1000);
+let date = new Date();
+let time = date.toLocaleTimeString();
+let cDate = date.toLocaleDateString();
+DayClock.innerHTML=`${cDate}`
+clock.innerHTML = date.toLocaleTimeString();
 
+const Stopbtn = function () {
+  clearInterval(interval);
+};
+
+const Startbtn = function () {
+  interval = setInterval(function () {
+    let date = new Date();
+    clock.innerHTML = date.toLocaleTimeString();
+  }, 1000);
+};
+
+document.querySelector("#start").addEventListener("click", Startbtn);
+document.querySelector("#stop").addEventListener("click", Stopbtn);

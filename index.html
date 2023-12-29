@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Single Screen</title>
+    <style>
+        html {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+
+
+        }
+
+        body {
+
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: whitesmoke;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffe2e2;
+            min-height: 100vh;
+            width: 100vw;
+
+        }
+
+        nav {
+
+            text-align: center;
+            font-weight: 700;
+            width: 100%;
+            background-color: rgb(115, 115, 255);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+
+        #links {
+            width: 70vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .link {
+            background-color: #fff;
+            height: 20px;
+            min-width: 70%;
+            min-height: 40px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: rgb(68, 2, 2);
+        }
+
+        footer {
+            background-color: rgb(115, 115, 255);
+            text-align: center;
+            width: 100vw;
+            font-weight: 700;
+            background-color: rgb(115, 115, 255);
+            height: fit-content;
+        }
+
+        #admin {
+            background-color: #fff;
+            height: 20px;
+            min-width: 10%;
+            min-height: 40px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: rgb(68, 2, 2);
+            cursor: pointer;
+        }
+
+        .btn {
+            background-color: #fff;
+            height: 20px;
+            min-width: 10%;
+            min-height: 40px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: rgb(68, 2, 2);
+            cursor: pointer;
+            margin: 3px 5px;
+            border: 1px solid black;
+        }
+        #CreateLink{
+            background-color: rgb(228, 169, 81);
+        }
+
+        label {
+            font-weight: 700;
+            font-style: italic;
+          
+        }
+
+        .inputfieldblock {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inputfield {
+            margin: 4px;
+            border: 0px solid transparent;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+        #linkForm{
+            background-color: rgb(255, 155, 155);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+            gap: 3px;
+           
+            
+        }
+
+        #link,
+        #title {
+            width: 90px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+
+            <p>
+                All in One Project Aggregator
+                <span> Developed by Divyansh Mishra</span>
+            </p>
+        </nav>
+
+        <div id="links">
+            <a href="BMI Calcuator\index.html" target="_blank" class="link">BMI Calculator</a>
+            <a href="Color Switcher\index.html" target="_blank" class="link">Color Switcher</a>
+            <a href="Digital Clock\index.html" target="_blank" class="link">Digital Watch</a>
+            <a href="Async_Await\RandomColorGenerator.html" target="_blank" class="link">Random Color Generator</a>
+            <a href="Async_Await\RandomColorGenerator.html" target="_blank" class="link"> Remove Any Image</a>
+        </div>
+
+
+        <div id="admin">Add Link</div>
+        <div id="linkForm"></div>
+        <footer>
+            <p id="FooterPara">Developed By Divyansh</p>
+        </footer>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
