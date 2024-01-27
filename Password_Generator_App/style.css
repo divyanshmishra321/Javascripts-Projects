@@ -77,19 +77,21 @@ button {
 }
 
 .displayContainer input {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
   border: none;
   padding: 5px;
   color: var(--vb-yellow);
   font-size: 1.5rem;
   outline: none;
   width: fit-content;
+  min-width: 60%;
 }
 .displayContainer ::placeholder {
   position: absolute;
   top: 50%;
-  left: 0px;
-  opacity: 0.65;
+  left: 10px;
+  opacity: 100%;
 }
 .displayContainer button {
   position: absolute;
@@ -281,4 +283,25 @@ button {
   align-items: center;
   letter-spacing: 1px;
   width: 50%;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: var(--vb-violet2);
+  color: var(--vb-yellow);
+  border-radius: 1rem;
+  font-size: 1rem;
+  top: -35px;
+  left: -25px;
+  padding: 5px 10px;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: bottom;
+  transition: all 250ms ease-in-out;
+  width: fit-content;
+}
+
+.tooltip.active {
+  opacity: 1;
+  transform: scale(1);
 }
