@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <div class="container">
+
+
+      <div class="main-card">
+        <h1 id="heading">WHEATHER APP</h1>
+
+        <div class="tab-container">
+          <p class="tab" id="userWeather" data-userWeather>Your Location</p>
+          <p class="tab" id="searchWeather" data-searchWeather>Search City</p>
+        </div>
+
+
+        <div class="wheather-container">
+
+          <!-- Grant Location Container -->
+          <div class="grant-location-container">
+            <img src="./Images/location.png" alt="" width="80" height="80" loading="lazy">
+            <p>Grant Location Access</p>
+            <p>Allow access to get current Location Wheather </p>
+            <button class="btn" id="locationBtn">Grant Access</button>
+          </div>
+
+          <!-- Search City Container -->
+          <form class="form-container" id="searchForm">
+            <input placeholder="Search For City" id="searchInput" type="text">
+            <button class="btn" type="submit">
+              <img src="./Images/search.png" alt="" width="20" height="20" loading="lazy">
+            </button>
+          </form>
+
+          <!-- Loading Screen Container -->
+          <div class="loading-container">
+            <img src="./Images/loading.gif" width="150" height="150" alt="">
+            <p>Loading</p>
+          </div>
+
+          <!-- Show Wheather  -->
+          <div class="user-info-container">
+
+
+            <!-- city name and flag -->
+            <div class="name">
+              <p id="cityName" ></p>
+              <img src="" id="countryFlag" alt="">
+            </div>
+            <!-- wheather description -->
+            <p id="weatherAppDisc"></p>
+            <!-- wheatherIcon -->
+            <img id="wheatherIcon">
+            <!--temprature  -->
+            <p id="temprature"> </p>
+
+            <!-- 3 Cards parameter -->
+            <div class="parameter-container">
+              <!-- card1 -->
+              <div class="parameter">
+                <img src="./Images/wind.png" alt="">
+                <p>Wind Speed</p>
+                <p id="windSpeed"></p>
+              </div>
+              <!--card 2  -->
+              <div class="parameter">
+                <img src="./Images/cloud.png" alt="">
+                <p>Clouds</p>
+                <p id="cloudiness"></p>
+              </div>
+              <!--card 3  -->
+              <div class="parameter">
+                <img src="./Images/humidity.png" alt="">
+                <p>Humidity</p>
+                <p id="humidity"></p>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
