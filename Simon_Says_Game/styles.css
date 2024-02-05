@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: beige;
+  text-align: center;
+}
+
+.gameContainer{
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    min-height: fit-content;
+}
+
+.gameBtn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.btn{
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    place-self: center;
+    border-radius: 20%;
+    border: 5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: 900;
+}
+
+.red{
+background-color: #d95980;
+}
+
+.orange{
+    background-color: #f99b45;
+}
+
+.blue{
+    background-color: #63aac0;
+}
+
+.purple{
+    background-color: purple;
+}
