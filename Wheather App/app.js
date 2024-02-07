@@ -98,9 +98,12 @@ function updateWeatherInfo(weatherInfo) {
 
   if (weatherInfo.name === "National Capital Territory of Delhi") {
     cityName.innerText = "Delhi";
-  } else {
-    cityName.innerText = weatherInfo.name;
+  } 
+  else {
+    cityName.innerText = weatherInfo.name ;
   }
+
+
 
   countryFlag.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
   weatherAppDisc.innerText = weatherInfo.weather[0].description;
@@ -109,7 +112,8 @@ function updateWeatherInfo(weatherInfo) {
   windSpeed.innerText = `${weatherInfo?.wind?.speed}km/hr`;
   visibility.innerText = `${weatherInfo?.visibility / 1000} Km`;
   humidity.innerText = `${weatherInfo?.main?.humidity} %`;
-  // searchInput.placeholder = `${weatherInfo.name}`;
+  
+  
 }
 
 // Function to call API for particular City Name
@@ -134,4 +138,18 @@ function searchedLocationWeather(city_name) {
         console.error("Error fetching weather data:", error);
       });
   }
+}
+
+
+if(cityName.innerText === "undefined"){
+  cityNotFound();
+  console.log("hello");
+}
+
+function cityNotFound() {
+  let errorContainer=document.querySelector(".errorContainer");
+  console.error("Location information is unavailable in API");
+  weatherContainer.classList.add("inactive");
+  grantLocationContainer.classList.add("inactive");
+  errorContainer.classList.remove("inactive");
 }
