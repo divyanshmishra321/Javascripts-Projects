@@ -16,7 +16,7 @@
       <div class="firstblock">
         <h1 id="heading">WEATHER APP</h1>
         <!-- Search City Container -->
-        <form class="form-container" id="searchForm">
+        <form class="form-container " id="searchForm">
           <input placeholder="Search For City" id="searchInput" type="text">
           <button class="btn" type="submit">
             <img src="./Images/search.png" alt="" width="20" height="20" loading="lazy">
@@ -24,50 +24,59 @@
         </form>
       </div>
       <!-- Grant Location Container -->
-      <div class="grant-location-container inactive">
+      <div class="grant-location-container ">
         <img src="./Images/location.png" alt="" width="80" height="80" loading="lazy">
         <p id="locationText">Grant Location Access</p>
         <p id="locationText2">Allow us to Capture <br> Current Location</p>
         <button onclick="getUserLocation()" id="locationBtn">🎯Grant Access🎯</button>
+        <div>Made with ❤️ (Divyansh)</div>
       </div>
+
       <div class="wheather-container ">
-        <!-- city name and flag -->
-        <div class="name">
-          <p id="cityName">New York</p>
-          <img src="" id="countryFlag" alt="">
-        </div>
-        <!-- Show Wheather  -->
-        <div class="user-info-container ">
-          <!-- wheather description -->
-          <p id="weatherAppDisc"></p>
-          <!-- wheatherIcon -->
-          <img id="wheatherIcon">
+        <div class="temprature-Container">
           <!--temprature  -->
-          <p id="temprature"> </p>
-          <!-- 3 Cards parameter -->
-          <div class="parameter-container ">
-            <!-- card1 -->
-            <div class="parameter">
-              <img src="./Images/wind.png" alt="">
-              <p>Wind Speed</p>
-              <p id="windSpeed">12</p>
-            </div>
-            <!--card 2  -->
-            <div class="parameter">
-              <img src="./Images/cloud.png" alt="">
-              <p>Clouds</p>
-              <p id="cloudiness">12</p>
-            </div>
-            <!--card 3  -->
-            <div class="parameter">
-              <img src="./Images/humidity.png" alt="">
-              <p>Humidity</p>
-              <p id="humidity">12</p>
-            </div>
+          <p id="temprature"></p>
+        </div>
+        <div class="weather-info-container">
+
+          <!-- city name and flag -->
+          <div class="nameFlag">
+            <img src="" id="countryFlag" alt="">
+            <p id="cityName"></p>
+          </div>
+          <!-- Other Description -->
+          <div class="otherDescription">
+            <!-- wheatherIcon -->
+            <img id="wheatherIcon">
+            <!-- wheather description -->
+            <p id="weatherAppDisc"></p>
+            
+          </div>
+
+        </div>
+        <!-- 3 Cards parameter -->
+        <div class="parameter-container ">
+          <!-- card1 -->
+          <div class="parameter">
+            <img src="./Images/wind.png" alt="">
+            <p id="windSpeed">12</p>
+          </div>
+          <!--card 2  -->
+          <div class="parameter">
+            <img src="./Images/visibility.png" alt="">
+            <p id="visibility">12</p>
+          </div>
+          <!--card 3  -->
+          <div class="parameter">
+            <img src="./Images/humidity.png" alt=""> 
+            <p id="humidity">12</p>
           </div>
         </div>
+        <div>Made with ❤️ (Divyansh)</div>
       </div>
+
     </div>
+    
   </div>
   <script src="./app.js"></script>
 </body>
