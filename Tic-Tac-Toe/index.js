@@ -50,11 +50,13 @@ function handleCellClick(index) {
     if (currentPlayer === "X") {
         currentPlayer = "0";
         cells[index].style.backgroundColor = "#fa7d7d";
+        
     } else {
       cells[index].style.backgroundColor = "#7d98fa";
+    
       currentPlayer = "X";
     }
-    
+    player.innerText = `Current Player-${currentPlayer}`;
     checkGameOver();
   }
 }
