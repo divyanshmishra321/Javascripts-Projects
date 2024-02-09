@@ -13,7 +13,8 @@
 <body>
   <div class="container ">
     <div class="main-card">
-      
+
+     
       <div class="firstblock">
         <h1 id="heading">WEATHER APP</h1>
         <!-- Search City Container -->
@@ -24,7 +25,13 @@
           </button>
         </form>
 
-        <div class="errorContainer inactive"><p>City Not Found</p></div>
+        <button id="myLocation" class="inactive"><img src="./Images/pin-map.png" alt=""></button>
+
+        <div class="errorContainer inactive">
+          <p>City Not Found</p>
+         
+          <footer> Made with ❤️ (Divyansh)</footer>
+        </div>
       </div>
       <!-- Grant Location Container -->
       <div class="grant-location-container ">
@@ -32,7 +39,7 @@
         <p id="locationText">Grant Location Access</p>
         <p id="locationText2">Allow us to Capture <br> Current Location</p>
         <button onclick="getUserLocation()" id="locationBtn">🎯Grant Access🎯</button>
-        <div>Made with ❤️ (Divyansh)</div>
+        <footer> Made with ❤️ (Divyansh)</footer>
       </div>
 
       <div class="wheather-container ">
@@ -75,7 +82,7 @@
             <p id="humidity">12</p>
           </div>
         </div>
-        <div>Made with ❤️ (Divyansh)</div>
+        <footer> Made with ❤️ (Divyansh)</footer>
       </div>
 
     </div>

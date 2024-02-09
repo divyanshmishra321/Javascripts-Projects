@@ -6,9 +6,14 @@ const form = document.querySelector(".form-container");
 const weatherContainer = document.querySelector(".wheather-container");
 const grantAccessBtn = document.querySelector("#locationBtn");
 const inputValue = searchInput.value;
+let errorContainer = document.querySelector(".errorContainer");
+let myLocation= document.querySelector("#myLocation");
+
 
 checkAcessLocation();
 
+
+// Function to Check weather we already have location Access or not 
 function checkAcessLocation() {
   if (weatherContainer.classList.contains("inactive")) {
     grantAccessBtn.addEventListener("click", getUserLocation);
@@ -19,14 +24,8 @@ function checkAcessLocation() {
   }
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  console.log(searchInput.value);
 
-  searchedLocationWeather(searchInput.value);
-});
-
-// Function to get user's location
+// Function to get user's  Current location weather Details
 function getUserLocation() {
   // Check if the browser supports Geolocation
   if (navigator.geolocation) {
@@ -50,6 +49,7 @@ function successCallback(position) {
   weatherContainer.classList.remove("inactive");
   form.classList.remove("inactive");
   grantLocationContainer.classList.add("inactive");
+  myLocation.classList.remove("inactive");
 
   // Call your weather API with the obtained coordinates
   const apiKey = "99ad1f8f51e9d3cd1b0d7a572318beb9";
@@ -87,6 +87,8 @@ function errorCallback(error) {
   }
 }
 
+
+// Function to Update Dom with API Values
 function updateWeatherInfo(weatherInfo) {
   let cityName = document.querySelector("#cityName");
   const countryFlag = document.querySelector("#countryFlag");
@@ -106,10 +108,14 @@ function updateWeatherInfo(weatherInfo) {
   weatherAppDisc.innerText = weatherInfo.weather[0].description;
   weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
   temprature.innerText = `${weatherInfo.main.temp} °C`;
-  windSpeed.innerText = `${weatherInfo?.wind?.speed}km/hr`;
+  windSpeed.innerText = `${weatherInfo?.wind?.speed} 
+  km/hr`;
   visibility.innerText = `${weatherInfo?.visibility / 1000} Km`;
   humidity.innerText = `${weatherInfo?.main?.humidity} %`;
+  
 }
+
+
 
 // Function to call API for particular City Name
 function searchedLocationWeather(city_name) {
@@ -117,41 +123,63 @@ function searchedLocationWeather(city_name) {
     console.error("Location information is unavailable.");
     searchInput.placeholder = `Location Unavailable.`;
     searchInput.classList.add("error");
-  } 
-  else if (city_name === "undefined") {
-    let errorContainer = document.querySelector(".errorContainer");
-    console.error("Location information is unavailable in API");
-    weatherContainer.classList.add("inactive");
-    grantLocationContainer.classList.add("inactive");
-    errorContainer.classList.remove("inactive");
-    console.log("cityNotFound");
-  } 
-  else {
+  } else {
     const apiKey = "99ad1f8f51e9d3cd1b0d7a572318beb9";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${apiKey}&units=metric`;
 
-    // Fetch weather data
+    weatherContainer.classList.remove("inactive");
+    grantLocationContainer.classList.add("inactive");
+    errorContainer.classList.add("inactive");
+    searchInput.placeholder=`Search For  City `;
+
     fetch(apiUrl)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          if (response.status === 404) {
+            throw new Error("City not found");
+          } else {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+        }
+        return response.json();
+      })
       .then((data) => {
-        console.log(data);
         // Update the DOM with weather information
         updateWeatherInfo(data);
-        cityNotFound();
       })
       .catch((error) => {
-        console.error("Error fetching weather data:", error);
+        if (error.message === "City not found") {
+          
+          console.error("Location information is unavailable in API");
+          weatherContainer.classList.add("inactive");
+          grantLocationContainer.classList.add("inactive");
+          errorContainer.classList.remove("inactive");
+          console.log("cityNotFound");
+        } else {
+          console.error("Error fetching weather data:", error.message);
+        }
       });
   }
 }
 
-function cityNotFound() {
-  if (cityName === "undefined") {
-    let errorContainer = document.querySelector(".errorContainer");
-    console.error("Location information is unavailable in API");
-    weatherContainer.classList.add("inactive");
-    grantLocationContainer.classList.add("inactive");
-    errorContainer.classList.remove("inactive");
-    console.log("cityNotFound");
-  }
+// function triggred by myLocation Button
+
+function myUserLocation(){
+weatherContainer.classList.remove("inactive");
+errorContainer.classList.add("inactive");
+console.log("my Location Clicked");
+searchInput.value="";
+getUserLocation();
 }
+
+
+// Event Listeners
+
+myLocation.addEventListener("click", myUserLocation);
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(searchInput.value);
+
+  searchedLocationWeather(searchInput.value);
+});
