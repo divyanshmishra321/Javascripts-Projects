@@ -24,8 +24,7 @@ function initGame() {
     cell.innerText = "";
     cells[index].style.pointerEvents = "all";
     board.style.backgroundColor = "#444";
-    cells[index].style.backgroundColor="#444";
-   
+    cells[index].style.backgroundColor="#444";   
   });
   newGameBtn.classList.add("inactive");
   
