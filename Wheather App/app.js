@@ -5,6 +5,7 @@ const grantLocationContainer = document.querySelector(
 const form = document.querySelector(".form-container");
 const weatherContainer = document.querySelector(".wheather-container");
 const grantAccessBtn = document.querySelector("#locationBtn");
+const inputValue = searchInput.value;
 
 checkAcessLocation();
 
@@ -98,13 +99,9 @@ function updateWeatherInfo(weatherInfo) {
 
   if (weatherInfo.name === "National Capital Territory of Delhi") {
     cityName.innerText = "Delhi";
-  } 
-  else {
-    cityName.innerText = weatherInfo.name ;
+  } else {
+    cityName.innerText = weatherInfo.name;
   }
-
-
-
   countryFlag.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
   weatherAppDisc.innerText = weatherInfo.weather[0].description;
   weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
@@ -112,8 +109,6 @@ function updateWeatherInfo(weatherInfo) {
   windSpeed.innerText = `${weatherInfo?.wind?.speed}km/hr`;
   visibility.innerText = `${weatherInfo?.visibility / 1000} Km`;
   humidity.innerText = `${weatherInfo?.main?.humidity} %`;
-  
-  
 }
 
 // Function to call API for particular City Name
@@ -122,7 +117,16 @@ function searchedLocationWeather(city_name) {
     console.error("Location information is unavailable.");
     searchInput.placeholder = `Location Unavailable.`;
     searchInput.classList.add("error");
-  } else {
+  } 
+  else if (city_name === "undefined") {
+    let errorContainer = document.querySelector(".errorContainer");
+    console.error("Location information is unavailable in API");
+    weatherContainer.classList.add("inactive");
+    grantLocationContainer.classList.add("inactive");
+    errorContainer.classList.remove("inactive");
+    console.log("cityNotFound");
+  } 
+  else {
     const apiKey = "99ad1f8f51e9d3cd1b0d7a572318beb9";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${apiKey}&units=metric`;
 
@@ -133,6 +137,7 @@ function searchedLocationWeather(city_name) {
         console.log(data);
         // Update the DOM with weather information
         updateWeatherInfo(data);
+        cityNotFound();
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
@@ -140,16 +145,13 @@ function searchedLocationWeather(city_name) {
   }
 }
 
-
-if(cityName.innerText === "undefined"){
-  cityNotFound();
-  console.log("hello");
-}
-
 function cityNotFound() {
-  let errorContainer=document.querySelector(".errorContainer");
-  console.error("Location information is unavailable in API");
-  weatherContainer.classList.add("inactive");
-  grantLocationContainer.classList.add("inactive");
-  errorContainer.classList.remove("inactive");
+  if (cityName === "undefined") {
+    let errorContainer = document.querySelector(".errorContainer");
+    console.error("Location information is unavailable in API");
+    weatherContainer.classList.add("inactive");
+    grantLocationContainer.classList.add("inactive");
+    errorContainer.classList.remove("inactive");
+    console.log("cityNotFound");
+  }
 }
